@@ -54,6 +54,10 @@ body {
     padding: 20px 80px;
     background: #FFE5B4;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 #navbar{
@@ -91,4 +95,41 @@ body {
     left: 20px;
 
 }
+
+#hero{
+    background-image: url("img/hero_img3.png");
+    height: 50vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 0;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#hero h4 {
+    padding-bottom: 15px;
+}
+
+#hero h1 {
+    color: orange;
+}
+
+.button-52 {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  background-color: lch(74.65% 26.17 144.4);
+}
+
+
+
+
+
 
