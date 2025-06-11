@@ -1,0 +1,78 @@
+@*
+@page
+@using studenthousing.Models;
+@model studenthousing.Pages.DutiesModel
+
+
+<h2>Onderhoudstaken</h2>
+<hr>
+<h6>Hier vind je de geplande taken voor de komende twee weken.</h6>
+<hr>
+<p>Maak een nieuwe taak aan.</p>
+
+
+<partial name="_ValidationScriptsPartial" />
+
+    <form method="post">
+        <div class="form-row">
+        <div>
+            <label>Taak:</label>
+            <input asp-for="NewDuty.Name" />
+            <span asp-validation-for="NewDuty.Name" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Beschrijving:</label>
+            <input asp-for="NewDuty.Description" />
+            <span asp-validation-for="NewDuty.Description" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Hoeveel mensen nodig:</label>
+            <input asp-for="NewDuty.AmountOfPeople" />
+            <span asp-validation-for="NewDuty.AmountOfPeople" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Prioriteit:</label>
+            <input asp-for="NewDuty.Priority" />
+            <span asp-validation-for="NewDuty.Priority" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Taak grootte:</label>
+            <input asp-for="NewDuty.TaskSize" />
+            <span asp-validation-for="NewDuty.TaskSize" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Datum:</label>
+            <input asp-for="NewDuty.Date" />
+            <span asp-validation-for="NewDuty.Date" class="text-danger"></span>
+        </div>
+        <button type="submit">Add</button>
+        </div>
+    </form> 
+
+<table>
+    <thead
+        <tr>
+            <th>Taak</th>
+            <th>Beschrijving</th>
+            <th>Hoeveel mensen nodig</th>
+            <th>Prioriteit</th>
+            <th>Taakgrootte</th>
+            <th>Datum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var duty in Model.Duties)
+        {
+            <tr>
+                <td>@duty.Name</td>
+                <td>@duty.Description</td>
+                <td>@duty.AmountOfPeople</td>
+                <td>@duty.Priority</td>
+                <td>@duty.TaskSize</td>
+                <td>@duty.Date</td>
+            </tr>
+        }
+    </tbody>
+       
+</table>
+ *@

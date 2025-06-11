@@ -1,0 +1,68 @@
+@page
+@using studenthousing.Models;
+@model studenthousing.Pages.ActivitiesModel
+
+<h2>Activiteiten</h2>
+<hr>
+<h6>Hier vind je de geplande activiteiten voor de komende twee weken.</h6>
+<hr>
+<p>Maak een nieuwe activiteiten aan.</p>
+
+<partial name="_ValidationScriptsPartial" />
+
+    <form method="post">
+        <div class="form-row">
+        <div>
+            <label>Activiteit:</label>
+            <input asp-for="NewActivity.Name" />
+            <span asp-validation-for="NewActivity.Name" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Locatie:</label>
+            <input asp-for="NewActivity.Place" />
+            <span asp-validation-for="NewActivity.Place" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Kosten:</label>
+            <input asp-for="NewActivity.Price" />
+            <span asp-validation-for="NewActivity.Price" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Aantal inschrijvingen:</label>
+            <input asp-for="NewActivity.Amount" />
+            <span asp-validation-for="NewActivity.Amount" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Datum:</label>
+            <input asp-for="NewActivity.Date" />
+            <span asp-validation-for="NewActivity.Date" class="text-danger"></span>
+        </div>
+        <button type="submit">Add</button>
+        </div>
+    </form> 
+
+<table>
+    <thead
+        <tr>
+            <th>Activiteit</th>
+            <th>Locatie</th>
+            <th>kosten</th>
+            <th>Aantal deelnemers</th>
+            <th>Datum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var activity in Model.Activity)
+        {
+            <tr>
+                <td>@activity.Name</td>
+                <td>@activity.Place</td>
+                <td>@activity.Price</td>
+                <td>@activity.Amount</td>
+                <td>@activity.Date</td>
+            </tr>
+        }
+    </tbody>
+        
+       
+</table>

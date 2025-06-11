@@ -1,4 +1,7 @@
+//using Microsoft.EntityFrameworkCore;
+using studenthousing.Models;
 using System.Net;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
