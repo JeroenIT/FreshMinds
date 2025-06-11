@@ -1,0 +1,30 @@
+@page
+@using studenthousing.Models;
+@model studenthousing.Pages.TestModel
+
+
+<h2>Test</h2>
+
+<div>
+    @Html.Raw(Model.Html);
+</div>
+
+ <table>
+    <thead
+        <tr>
+            <th>Naam</th>
+            <th>Leeftijd</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var test in Model.Test)
+        {
+            <tr>
+                <td>@test.Name</td>
+                <td>@test.Age</td>
+            </tr>
+        }
+    </tbody>
+       
+</table> 
