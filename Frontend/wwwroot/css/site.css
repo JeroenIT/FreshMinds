@@ -83,12 +83,12 @@ body {
 
 .hero h1,
 .hero p {
-    color: #ffffff; /* helder wit */
+    color: #ffffff; 
 }
 
 
 .navbar {
-    background-color: #7A9E7E; /* donkerblauw */
+    background-color: #7A9E7E; 
     padding: 1rem 2rem;
 }
 
@@ -97,4 +97,9 @@ body {
     text-decoration: none;
     margin-right: 1.5rem;
     font-weight: bold;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
 }

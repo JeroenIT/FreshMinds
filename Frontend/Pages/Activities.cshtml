@@ -60,6 +60,12 @@
                 <td>@activity.Price</td>
                 <td>@activity.Amount</td>
                 <td>@activity.Date</td>
+                @* <td>
+                    <form method="post" asp-page-handler="Signup">
+                        <input type="hidden" name="ActivityId" value="@activity.Id" />
+                        <button type="submit">Aanmelden</button>
+                    </form>
+                </td> *@
             </tr>
         }
     </tbody>

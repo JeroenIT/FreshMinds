@@ -17,7 +17,7 @@ namespace studenthousing.Pages
         private readonly IHttpClientFactory _httpClientFactory;
 
         public List<Activity> Activity { get; set; } = new();
-        //public List<Activity> Activities { get; set; } = new List<Activity>();
+        
         public string Html { get; private set; } = string.Empty;
         [BindProperty]
         public Activity NewActivity { get; set; } = new Activity();
@@ -38,7 +38,7 @@ namespace studenthousing.Pages
             var client = _httpClientFactory.CreateClient();
             client.BaseAddress = new Uri("http://145.93.56.185:5000/");
 
-            var response = await client.GetAsync("/activities"); // URL van je API
+            var response = await client.GetAsync("/activities"); 
 
             if (response.IsSuccessStatusCode)
             {
@@ -46,7 +46,7 @@ namespace studenthousing.Pages
                 Activity = JsonSerializer.Deserialize<List<Activity>>(json);
             }
         }
-        
+
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -63,12 +63,30 @@ namespace studenthousing.Pages
 
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToPage(); // succes → herlaad pagina
+                return RedirectToPage(); 
             }
 
             ModelState.AddModelError(string.Empty, "Fout bij toevoegen activiteit.");
             return Page();
         }
+        
+        // public async Task<IActionResult> OnPostSignupAsync(int activityId)
+        // {
+        //     var client = _httpClientFactory.CreateClient();
+        //     client.BaseAddress = new Uri("http://145.93.56.185:5000/");
+
+        //     // Maak een PATCH of aangepaste POST call om de Amount te verhogen
+        //     var response = await client.PostAsync($"/activities/signup/{activityId}", null); // Of ander passend endpoint
+
+        //     if (response.IsSuccessStatusCode)
+        //     {
+        //     TempData["Message"] = "Je bent aangemeld!";
+        //     return RedirectToPage();
+        //     }
+
+        //     TempData["Message"] = "Aanmelden mislukt.";
+        //     return RedirectToPage();
+        // }
     
     }
 }

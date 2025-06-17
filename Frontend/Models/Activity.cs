@@ -9,6 +9,9 @@ namespace studenthousing.Models
 {
     public class Activity
     {
+        // public int Id { get; set; }
+        //ik heb een activityid nodig vragen aan karmeen of hij die wel heeft en hoe die heet
+
         [Required(ErrorMessage = "Naam is verplicht")]
         [JsonPropertyName("name")]
         public string Name { get; set; }
