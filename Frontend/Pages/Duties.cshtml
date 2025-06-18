@@ -1,0 +1,134 @@
+
+@page
+@using studenthousing.Models;
+@model studenthousing.Pages.DutiesModel
+
+
+<h2>Onderhoudstaken</h2>
+<hr>
+<p>Maak een nieuwe taak aan.</p>
+<hr>
+
+<partial name="_ValidationScriptsPartial" />
+<form method="post" class="mb-4">
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="form-label">Taak:</label>
+            <input asp-for="NewDuty.Name" class="form-control" />
+            <span asp-validation-for="NewDuty.Name" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Beschrijving:</label>
+            <input asp-for="NewDuty.Description" class="form-control"/>
+            <span asp-validation-for="NewDuty.Description" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="form-label">Hoeveel mensen nodig:</label>
+            <input asp-for="NewDuty.AmountOfPeople" class="form-control"/>
+            <span asp-validation-for="NewDuty.AmountOfPeople" class="text-danger"></span>
+         </div>
+        
+        <div class="col-md-6">
+    <label class="form-label d-block">Prioriteit:</label>
+    <div class="form-check form-switch">
+        <input asp-for="NewDuty.Priority" class="form-check-input" role="switch" />
+        <label class="form-check-label" for="NewDuty_Priority">Hoog</label>
+    </div>
+    <span asp-validation-for="NewDuty.Priority" class="text-danger"></span>
+</div>
+    </div> 
+    
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="form-label">Taak grootte:</label>
+            <input asp-for="NewDuty.TaskSize" class="form-control"/>
+            <span asp-validation-for="NewDuty.TaskSize" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Datum:</label>
+            <input asp-for="NewDuty.Date" class="form-control"/>
+            <span asp-validation-for="NewDuty.Date" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Voeg toe</button>
+        </div>
+    </div>
+</form>
+
+
+    @* <form method="post"class="mb-4">
+        <div class="row g-3 align-items-end">
+        <div class="col-md">
+            <label class="form-label">Taak:</label>
+            <input asp-for="NewDuty.Name" class="form-control" />
+            <span asp-validation-for="NewDuty.Name" class="text-danger"></span>
+        </div>
+        <div class="col-md">
+            <label class="form-label">Beschrijving:</label>
+            <input asp-for="NewDuty.Description" class="form-control"/>
+            <span asp-validation-for="NewDuty.Description" class="text-danger"></span>
+        </div>
+        <div class="col-md">
+            <label class="form-label">Hoeveel mensen nodig:</label>
+            <input asp-for="NewDuty.AmountOfPeople" class="form-control"/>
+            <span asp-validation-for="NewDuty.AmountOfPeople" class="text-danger"></span>
+        </div>
+        <div class="col-md">
+            <label class="form-label">Prioriteit:</label>
+            <input asp-for="NewDuty.Priority" class="form-control" />
+            <span asp-validation-for="NewDuty.Priority" class="text-danger"></span>
+        </div>
+        <div class="col-md">
+            <label class="form-label">Taak grootte:</label>
+            <input asp-for="NewDuty.TaskSize" class="form-control"/>
+            <span asp-validation-for="NewDuty.TaskSize" class="text-danger"></span>
+        </div>
+        <div class="col-md">
+            <label class="form-label">Datum:</label>
+            <input asp-for="NewDuty.Date" class="form-control"/>
+            <span asp-validation-for="NewDuty.Date" class="text-danger"></span>
+        </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Voeg toe</button>
+            </div>
+        </div>
+    </form>  *@
+
+<hr>
+<h6>Hier vind je de geplande taken voor de komende twee weken.</h6>
+<hr>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Taak</th>
+            <th>Beschrijving</th>
+            <th>Hoeveel mensen nodig</th>
+            <th>Prioriteit</th>
+            <th>Taakgrootte</th>
+            <th>Datum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var duty in Model.Duty)
+        {
+            <tr>
+                <td>@duty.Name</td>
+                <td>@duty.Description</td>
+                <td>@duty.AmountOfPeople</td>
+                <td>@duty.Priority</td>
+                <td>@duty.TaskSize</td>
+                <td>@duty.Date</td>
+            </tr>
+        }
+    </tbody>
+       
+</table>
+ 
