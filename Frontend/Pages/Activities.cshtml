@@ -4,45 +4,50 @@
 
 <h2>Activiteiten</h2>
 <hr>
-<h6>Hier vind je de geplande activiteiten voor de komende twee weken.</h6>
+<p>Maak een nieuwe activiteit aan.</p>
 <hr>
-<p>Maak een nieuwe activiteiten aan.</p>
 
 <partial name="_ValidationScriptsPartial" />
 
-    <form method="post">
-        <div class="form-row">
-        <div>
-            <label>Activiteit:</label>
-            <input asp-for="NewActivity.Name" />
+<form method="post" class="mb-4">
+    <div class="row g-3 align-items-end">
+        <div class="col-md">
+            <label class="form-label">Activiteit:</label>
+            <input asp-for="NewActivity.Name" class="form-control" />
             <span asp-validation-for="NewActivity.Name" class="text-danger"></span>
         </div>
-        <div>
-            <label>Locatie:</label>
-            <input asp-for="NewActivity.Place" />
+        <div class="col-md">
+            <label class="form-label">Locatie:</label>
+            <input asp-for="NewActivity.Place" class="form-control" />
             <span asp-validation-for="NewActivity.Place" class="text-danger"></span>
         </div>
-        <div>
-            <label>Kosten:</label>
-            <input asp-for="NewActivity.Price" />
+        <div class="col-md">
+            <label class="form-label">Kosten:</label>
+            <input asp-for="NewActivity.Price" class="form-control" />
             <span asp-validation-for="NewActivity.Price" class="text-danger"></span>
         </div>
-        <div>
-            <label>Aantal inschrijvingen:</label>
-            <input asp-for="NewActivity.Amount" />
+        <div class="col-md">
+            <label class="form-label">Aantal:</label>
+            <input asp-for="NewActivity.Amount" class="form-control" />
             <span asp-validation-for="NewActivity.Amount" class="text-danger"></span>
         </div>
-        <div>
-            <label>Datum:</label>
-            <input asp-for="NewActivity.Date" />
+        <div class="col-md">
+            <label class="form-label">Datum:</label>
+            <input asp-for="NewActivity.Date" class="form-control" />
             <span asp-validation-for="NewActivity.Date" class="text-danger"></span>
         </div>
-        <button type="submit">Add</button>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Voeg toe</button>
         </div>
-    </form> 
+    </div>
+</form>
 
-<table>
-    <thead
+<hr>
+<h6>Hier vind je de geplande activiteiten voor de komende twee weken.</h6>
+<hr>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead>
         <tr>
             <th>Activiteit</th>
             <th>Locatie</th>

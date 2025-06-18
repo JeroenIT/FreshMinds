@@ -36,7 +36,7 @@ namespace studenthousing.Pages
         private async Task GetActivitiesAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            client.BaseAddress = new Uri("http://145.93.56.185:5000/");
+            client.BaseAddress = new Uri("http://127.0.0.1:5000/");
 
             var response = await client.GetAsync("/activities"); 
 
@@ -57,7 +57,7 @@ namespace studenthousing.Pages
             }
 
             var client = _httpClientFactory.CreateClient();
-            client.BaseAddress = new Uri("http://145.93.56.185:5000/");
+            client.BaseAddress = new Uri("http://127.0.0.1:5000/");
 
             var response = await client.PostAsJsonAsync("/activities", NewActivity);
 
